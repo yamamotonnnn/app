@@ -16,7 +16,10 @@
 
 Route::get('/','PostController@index');
 Route::post('/start','PostController@start');
+Route::post('/end','PostController@end');
+
 Route::get('/timeline','PostController@timeline');
 Route::get('/posts/{post}', 'PostController@show');
+
 Route::get('/create', 'PostController@create');
 Route::post('/posts', 'PostController@store');

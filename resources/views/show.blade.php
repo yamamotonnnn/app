@@ -20,7 +20,15 @@
                 <p>{{ $post->body }}</p>    
             </div>
         </div>
-        <div class="footer">
+        <h2>コメント</h2>
+        <div class="comment">
+            <div class="comment__post">
+                <h4>name</h4>
+                <p>{{ $timeline_comment->name }}</p>
+                <h5>本文</h5>
+                <p>{{ $timeline_comment->body }}</p>    
+            </div>
+            <div class="footer">
             <a href="/timeline">戻る</a>
         </div>
     </body>

@@ -19,6 +19,11 @@
             @csrf
             <button type="submit" >出勤</button>
         </form>
+        <form action="/end" method="POST">
+            @csrf
+            <button type="submit" >退勤</button>
+        </form>
+        
         
     </body>
 </html>

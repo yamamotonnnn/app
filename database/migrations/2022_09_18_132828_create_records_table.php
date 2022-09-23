@@ -19,6 +19,7 @@ class CreateRecordsTable extends Migration
             $table->datetime('end_at')->nullable();
             $table->datetime('breakstart_at')->nullable();
             $table->datetime('breakend_at')->nullable();
+            $table->timestamps();
             
         });
     }

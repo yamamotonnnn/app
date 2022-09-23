@@ -4,14 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Timeline_comment extends Model
 {
-    protected $fillable = [
+     protected $fillable = [
         'user_id',
-        'title',
         'name',
         'body',
     ];
-    
-    
 }
