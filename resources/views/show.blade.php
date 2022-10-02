@@ -12,24 +12,25 @@
         <h1 class="title">
             {{ $post->title }}
         </h1>
-        <div class="content">
-            <div class="content__post">
-                <h3>name</h3>
-                <p>{{ $post->name }}</p>
-                <h3>本文</h3>
-                <p>{{ $post->body }}</p>    
-            </div>
+        <div class="post">
+            <h3>name</h3>
+            <p>{{ $post->name }}</p>
+            <h3>本文</h3>
+            <p>{{ $post->body }}</p>    
         </div>
+        <a href='/posts/{{ $post->id}}/comment/create'>comment</a>
+        <a href='/timeline'>back</a>
         <h2>コメント</h2>
-        <div class="comment">
-            <div class="comment__post">
-                <h4>name</h4>
-                <p>{{ $timeline_comment->name }}</p>
-                <h5>本文</h5>
-                <p>{{ $timeline_comment->body }}</p>    
-            </div>
-            <div class="footer">
-            <a href="/timeline">戻る</a>
+        <div class='comments'>
+            @foreach ($timeline_comments as $timeline_comment)
+                <div class='comment'>
+                    <p class='name'>{{ $timeline_comment->name }}</p>
+                    <p class='body'>{{ $timeline_comment->body }}</p>
+                </div>
+            @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $timeline_comments->links() }}
         </div>
     </body>
 </html>

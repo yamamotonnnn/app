@@ -15,8 +15,7 @@ class CreateTimelineCommentsTable extends Migration
     {
         Schema::create('timeline_comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('post_id');
+            $table->integer('post_id')->unsigned(); 
             $table->string('name', 50);
             $table->string('body', 200);
             $table->timestamps();

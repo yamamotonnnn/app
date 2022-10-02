@@ -12,20 +12,19 @@
        
     </head>
     <body>
-        <div class="home">[<a href="/">home</a>]</div>
-        <a href='/create'>create</a>
-        <h1>TimeLine</h1>
-        <div class='posts'>
-        @foreach ($posts as $post)
-            <h2 class='title'>
-                <a href="/posts/{{ $timeline_comment->id }}">{{ $timeline_comment->title }}</a>
-            </h2>
-            <div class='post'>
-                <p class='name'>{{ $timeline_comment->name }}</p>
-                <p class='body'>{{ $timeline_comment->body }}</p>
+        <form action="/comment_store" method="POST">
+            @csrf
+            <div class="body">
+                <h2>Name</h2>
+                <input type="text" name="timeline_comment[name]" placeholder="名前"/>
             </div>
-        @endforeach
-        </div>
-       
+            <div class="body">
+                <h2>Body</h2>
+                <textarea name="timeline_comment[body]" placeholder="コメント内容"></textarea>
+            </div>
+            <input type="hidden" name="timeline_comment[post_id]" value={{ $post->id }}>
+            <input type="submit" value="保存"/>
+        </form>
+        <div class="back">[<a href="/timeline">戻る</a>]</div>
     </body>
 </html>

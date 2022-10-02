@@ -28,25 +28,30 @@ class PostController extends Controller
     
     public function end(Record $record, Request $request)
     {
+        $users = User::find($user->id);
+        $posts = Post::where('user_id', $user_id)
+            ->orderBy('updated_at' , 'desc')
+            ->get();
         $date = Carbon::now();
         $record->end_at = $date;
         $record->save();
-        dd($record);
+        //dd($record);
+        return redirect('/');
     }
-    
-    
     
     public function timeline(Post $post)
     {
         return view('timeline')->with(['posts' => $post->get()]);  
-    
     }
     
     public function show(Post $post , Timeline_comment $timeline_comment)
     {
+        $comments = Timeline_comment::query()
+        ->where('post_id', $post->id)
+        ->paginate(1);
         return view('show')->with([
             'post' => $post,
-            'timeline_comment' => $timeline_comment,
+            'timeline_comments' => $comments
         ]);
     }  
     
@@ -59,8 +64,21 @@ class PostController extends Controller
     {
         $input = $request['post'];
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
-        
-        
+        //dd($post);
+        return redirect('/timeline/' . $post->id);
+    }
+    
+    public function comment(Post $post)
+    {
+       return view('timeline_comment')->with(['post' => $post]);
+    }
+    
+    public function comment_store(Timeline_comment $timeline_comment,Request $request)
+    {
+        $input = $request['timeline_comment'];
+        //dd($input);
+        $timeline_comment->fill($input)->save();
+        return redirect('/posts/' . $input['post_id']. '/comment');
     }
 }
+ 
