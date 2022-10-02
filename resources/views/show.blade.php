@@ -18,7 +18,7 @@
             <h3>本文</h3>
             <p>{{ $post->body }}</p>    
         </div>
-        <a href='/posts/{{ $post->id}}/comment/create'>comment</a>
+        <a href='./posts/{{ $post->id}}/comment/create'>comment</a>
         <a href='/timeline'>back</a>
         <h2>コメント</h2>
         <div class='comments'>
