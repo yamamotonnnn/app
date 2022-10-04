@@ -12,5 +12,13 @@ class Post extends Model
         'body',
     ];
     
+    public function getPaginateByLimit(int $Limit_count = 5)
+    { 
+        return $this->with('timeline_comments')->toSql();
+    }
     
+    public function timeline_comments()
+    {
+        return $this->hasMany('App\Timeline_comment');
+    }
 }
