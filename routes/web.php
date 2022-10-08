@@ -13,10 +13,25 @@
 
 
 
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/','PostController@index');
+    Route::post('/start','PostController@start');
+    Route::post('/end','PostController@end');
 
-Route::get('/','PostController@index');
-Route::post('/start','PostController@start');
-Route::get('/timeline','PostController@timeline');
-Route::get('/posts/{post}', 'PostController@show');
-Route::get('/create', 'PostController@create');
-Route::post('/posts', 'PostController@store');
+    Route::get('/posts/{post}/comment/create', 'PostController@comment');
+    Route::get('/timeline','PostController@timeline');
+    Route::get('/posts/{post}/comment', 'PostController@show');
+
+    Route::get('/create', 'PostController@create');
+    Route::post('/posts', 'PostController@store');
+    //Route::get('/posts/{post}/comment/create', 'PostController@comment');
+    Route::post('/comment_store', 'PostController@comment_store');
+
+    Route::post('/like/{post}','PostController@likestore');
+    Route::post('/unlike/{post}','PostController@destroy');
+});
+
+Auth::routes();
+
+
+

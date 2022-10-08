@@ -12,6 +12,9 @@
        
     </head>
     <body>
+        @extends('layouts.app')　
+        @section('content')
+        {{Auth::user()->name}}
         <h1>'Home画面'</h1>
         <a href='/timeline'><p1>TimeLine</p1></a>
         
@@ -19,6 +22,10 @@
             @csrf
             <button type="submit" >出勤</button>
         </form>
-        
+        <form action="/end" method="POST">
+            @csrf
+            <button type="submit" >退勤</button>
+        </form>
+        @endsection
     </body>
 </html>
