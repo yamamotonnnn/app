@@ -71,7 +71,7 @@ class PostController extends Controller
         $input = $request['post'];
         $post->fill($input)->save();
         //dd($post);
-        return redirect('/timeline/' . $post->id);
+        return redirect('/timeline' );//. $post->id);
     }
     
     public function comment(Post $post)
