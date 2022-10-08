@@ -5,6 +5,8 @@
         <title>TimeLine Post</title>
     </head>
     <body>
+        @extends('layouts.app')　
+        @section('content')
         <h1>TimeLine Post</h1>
         <form action="/posts" method="POST">
             @csrf
@@ -23,5 +25,6 @@
             <input type="submit" value="保存"/>
         </form>
         <div class="back">[<a href="/timeline">back</a>]</div>
+        @endsection
     </body>
 </html>

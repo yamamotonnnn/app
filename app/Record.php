@@ -10,4 +10,9 @@ class Record extends Model
         'user_id',
         'start_at',
     ];
+    
+     public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

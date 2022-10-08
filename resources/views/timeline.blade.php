@@ -12,13 +12,15 @@
        
     </head>
     <body>
+        @extends('layouts.app')　
+        @section('content')
         <div class="home">[<a href="/">home</a>]</div>
         <a href='/create'>create</a>
         <h1>TimeLine</h1>
         <div class='posts'>
         @foreach ($posts as $post)
             <h2 class='title'>
-                <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+                <a href="/posts/{{ $post->id }}/comment">{{ $post->title }}</a>
             </h2>
             <div class='post'>
                 <p class='name'>{{ $post->name }}</p>
@@ -26,6 +28,6 @@
             </div>
         @endforeach
         </div>
-       
+        @endsection
     </body>
 </html>
