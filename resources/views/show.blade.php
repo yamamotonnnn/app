@@ -21,7 +21,6 @@
             <h3>本文</h3>
             <p>{{ $post->body }}</p>    
         </div>
-        <button onclick="like({{$post->id}})">いいね</button>
         <a href='/posts/{{ $post->id}}/comment/create'>comment</a>
         <a href='/timeline'>back</a>
         <h2>コメント</h2>
@@ -32,6 +31,28 @@
                     <p class='body'>{{ $timeline_comment->body }}</p>
                 </div>
             @endforeach
+        </div>
+        <div class="like">
+            <span>
+                <!-- もしユーザーが「いいね」をしていたら-->
+                @if($like)
+                <!-- いいね削除ボタンを表示 -->
+	                <a href="{{ route('unlike', $post) }}" class="btn btn-success btn-sm">いいね
+		       <!-- いいねの数を表示 -->
+		                <span class="badge">
+			                {{ $post->likes->count() }}
+		                </span>
+                    </a>
+                @else
+                <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+	                <a href="{{ route('like', $post) }}" class="btn btn-secondary btn-sm">いいね
+	        	<!-- 「いいね」の数を表示 -->
+		                <span class="badge">
+			                {{ $post->likes->count() }}
+	        	        </span>
+	                </a>
+                @endif
+            </span>
         </div>
         <div class='paginate'>
             {{ $timeline_comments->links() }}
