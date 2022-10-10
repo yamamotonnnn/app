@@ -13,6 +13,6 @@ class Like extends Model
     
      public function users()
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->belongsTo('App\User');
     }
 }

@@ -6,6 +6,7 @@ use App\Post;
 use App\Record;
 use App\Timeline_comment;
 use App\User;
+use App\Like;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -50,16 +51,16 @@ class PostController extends Controller
         return view('timeline')->with(['posts' => $post->get()]);  
     }
     
-    public function show(Post $post , Timeline_comment $timeline_comment)
-    {
-        $comments = Timeline_comment::query()
-        ->where('post_id', $post->id)
-        ->paginate(5);
-        return view('show')->with([
-            'post' => $post,
-            'timeline_comments' => $comments
-        ]);
-    }  
+    //public function show(Post $post , Timeline_comment $timeline_comment)
+   // {
+        //$comments = Timeline_comment::query()
+       // ->where('post_id', $post->id)
+       // ->paginate(5);
+        //return view('show')->with([
+            //'post' => $post,
+            //'timeline_comments' => $comments
+       // ]);
+   // }  
     
     public function create()
     {
@@ -87,15 +88,33 @@ class PostController extends Controller
         return redirect('/posts/' . $input['post_id']. '/comment');
     }
     
-    public function likestore($postId)
+    public function like(Post $post, Request $request)
     {
-        Auth::user()->like($postId);
-        return 'ok!'; //レスポンス内容
+        $like=New Like();
+        $like->post_id=$post->id;
+        $like->user_id=Auth::user()->id;
+        $like->save();
+        return redirect('/timeline');
     }
-
-    public function destroy($postId)
+    
+    public function unlike(Like $like, Post $post)
     {
-        Auth::user()->unlilikeke($postId);
-        return 'ok!'; //レスポンス内容
-    }
-}
+        $user=Auth::user()->id;
+        $like=Like::where('post_id', $post->id)->where('user_id', $user)->first();
+        $like->delete();
+        return redirect('/timeline');
+    }  
+    
+     public function show(Post $post , Timeline_comment $timeline_comment)
+    {
+        $like=Like::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
+        $comments = Timeline_comment::query()
+        ->where('post_id', $post->id)
+        ->paginate(5);
+        return view('show')->with([
+            'post' => $post,
+            'timeline_comments' => $comments,
+            'like' => $like,
+        ]);
+    } 
+}    

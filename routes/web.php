@@ -27,8 +27,8 @@ Route::group(['middleware' => ['auth']], function(){
     //Route::get('/posts/{post}/comment/create', 'PostController@comment');
     Route::post('/comment_store', 'PostController@comment_store');
 
-    Route::post('/like/{post}','PostController@likestore');
-    Route::post('/unlike/{post}','PostController@destroy');
+    Route::get('/reply/like/{post}','PostController@like')->name('like');
+    Route::get('/reply/unlike/{post}','PostController@unlike')->name('unlike');
 });
 
 Auth::routes();
