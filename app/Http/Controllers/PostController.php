@@ -32,15 +32,38 @@ class PostController extends Controller
     
     public function end(Record $record, Request $request, User $user)
     {
-        //$users = User::find($user->id);
-        //$posts = Post::where('user_id', $user->id)
-        
         $user_id = Auth::id();  // ログインしているユーザのIDを取得
 	    $record = Record::where('user_id', $user_id)
             ->orderBy('updated_at' , 'desc')
             ->first();
         $date = Carbon::now();
         $record->end_at = $date;
+        $record->save();
+        //dd($record);
+        return redirect('/');
+    }
+    
+    public function breakstart(Record $record, Request $request, User $user)
+    {
+        $user_id = Auth::id();  // ログインしているユーザのIDを取得
+	    $record = Record::where('user_id', $user_id)
+            ->orderBy('updated_at' , 'desc')
+            ->first();
+        $date = Carbon::now();
+        $record->breakstart_at = $date;
+        $record->save();
+        //dd($record);
+        return redirect('/');
+    }
+    
+    public function breakend(Record $record, Request $request, User $user)
+    {
+        $user_id = Auth::id();  // ログインしているユーザのIDを取得
+	    $record = Record::where('user_id', $user_id)
+            ->orderBy('updated_at' , 'desc')
+            ->first();
+        $date = Carbon::now();
+        $record->breakend_at = $date;
         $record->save();
         //dd($record);
         return redirect('/');
