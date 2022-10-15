@@ -47,11 +47,3 @@ class User extends Authenticatable
     
 }
     
-//class User extends Model
-//{
-   // public function records()
-   // {
-    //    return $this->hasMany('App\Record');
-   // }
-
-//}

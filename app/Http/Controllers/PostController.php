@@ -139,5 +139,16 @@ class PostController extends Controller
             'timeline_comments' => $comments,
             'like' => $like,
         ]);
-    } 
+    }
+        
+    public function record(Record $record, User $user)
+    {
+        return view('management')->with([
+            'records' => $record->get(),
+            'user' => $user->get()
+        ]);
+    }
+    
+    
+    
 }    

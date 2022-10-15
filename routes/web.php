@@ -17,6 +17,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/','PostController@index');
     Route::post('/start','PostController@start');
     Route::post('/end','PostController@end');
+    Route::post('/breakstart','PostController@breakstart');
+    Route::post('/breakend','PostController@breakend');
 
     Route::get('/posts/{post}/comment/create', 'PostController@comment');
     Route::get('/timeline','PostController@timeline');
@@ -29,6 +31,8 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/reply/like/{post}','PostController@like')->name('like');
     Route::get('/reply/unlike/{post}','PostController@unlike')->name('unlike');
+    
+    Route::get('/a','PostController@record');
 });
 
 Auth::routes();
