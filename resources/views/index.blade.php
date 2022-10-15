@@ -26,6 +26,14 @@
             @csrf
             <button type="submit" >退勤</button>
         </form>
+        <form action="/breakstart" method="POST">
+            @csrf
+            <button type="submit" >休憩</button>
+        </form>
+        <form action="/breakend" method="POST">
+            @csrf
+            <button type="submit" >戻り</button>
+        </form>
         @endsection
     </body>
 </html>
