@@ -3,18 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-   protected $fillable = [
+    use SoftDeletes;
+    protected $fillable = [
         'title',
         'name',
         'body',
     ];
-    
-    public function getPaginateByLimit(int $Limit_count = 5)
+
+   public function getPaginateByLimit(int $Limit_count = 7)
     { 
-        return $this->with('timeline_comments')->toSql();
+        return $this->orderBy('updated_at', 'DESC')->paginate($Limit_count);
+       // return $this->with('timeline_comments')->toSql();
     }
     
     public function timeline_comments()

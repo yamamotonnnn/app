@@ -1,3 +1,36 @@
-h1 {
-    color: re
+.user, h2,a1, h1{
+  text-align: center;
+  font-size: 90%
 }
+.now{
+  text-align: center;
+  font-size: 50px;
+}
+
+
+.start, .breakstart, .breakend{
+  display: inline-block;
+  margin: 0 60px;
+  margin-top: 60px;
+}
+.start{
+  margin-left: 340px
+}
+.end{
+  display: inline-block;
+  margin: 0 60px;
+  margin-top: 60px;
+  
+}
+
+
+button{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: #ffa500;
+  border-radius: 50%;
+ 
+  
+}
+

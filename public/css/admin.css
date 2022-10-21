@@ -1,0 +1,27 @@
+.a,.b,.c,.d,.e,.d,.e,.f {
+    font-size: 30px;
+     display: inline-block;  
+    margin-left: 120px
+}
+.user_id,.user_name,.start,.end,.breakstart,.breakend{
+    display: inline-block;
+   
+}
+.user_id{
+    margin-left: 120px;
+}
+.user_name{
+    margin-left: 140px;
+}
+.start{
+    margin-left: 70px;
+}
+.end{
+    margin-left: 40px;
+}
+.breakstart{
+    margin-left: 40px;
+}
+.breakend{
+    margin-left: 40px;
+}
