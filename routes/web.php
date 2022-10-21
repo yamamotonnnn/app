@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/posts/{post}/comment', 'PostController@show');
 
     Route::get('/create', 'PostController@create');
+    Route::delete('/posts/{post}', 'PostController@delete');
     Route::post('/posts', 'PostController@store');
     //Route::get('/posts/{post}/comment/create', 'PostController@comment');
     Route::post('/comment_store', 'PostController@comment_store');
@@ -32,7 +33,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/reply/like/{post}','PostController@like')->name('like');
     Route::get('/reply/unlike/{post}','PostController@unlike')->name('unlike');
     
-    Route::get('/a','PostController@record');
+    Route::get('/admin','PostController@admin');
 });
 
 Auth::routes();

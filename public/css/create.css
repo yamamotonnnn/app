@@ -1,0 +1,6 @@
+ h1,.title, .body, .name, .back, .submit, .user{
+  text-align: center;
+}
+h2, h3, h4{
+   padding-top:  30px
+}

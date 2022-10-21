@@ -14,26 +14,35 @@
     <body>
         @extends('layouts.app')　
         @section('content')
-        {{Auth::user()->name}}
-        <h1>'Home画面'</h1>
-        <a href='/timeline'><p1>TimeLine</p1></a>
-        
-        <form action="/start" method="POST">
-            @csrf
-            <button type="submit" >出勤</button>
-        </form>
-        <form action="/end" method="POST">
-            @csrf
-            <button type="submit" >退勤</button>
-        </form>
-        <form action="/breakstart" method="POST">
-            @csrf
-            <button type="submit" >休憩</button>
-        </form>
-        <form action="/breakend" method="POST">
-            @csrf
-            <button type="submit" >戻り</button>
-        </form>
+        <div class=user>{{Auth::user()->name}}</div>
+        <h2>Home画面</h2>
+        <a href='/admin'><h1>admin</h1></a>
+        <a href='/timeline'><h1>TimeLine</h1></a>
+        <div class='now'>{{ $date }}</div>
+        <div class=start>
+            <form action="/start" method="POST">
+                @csrf
+                <button type="submit" >出勤</button>
+             </form>
+        </div>   
+        <div class=end>
+            <form action="/end" method="POST">
+                @csrf
+                <button type="submit" >退勤</button>
+            </form>
+        </div>
+        <div class=breakstart>
+            <form action="/breakstart" method="POST">
+                @csrf
+                <button type="submit" >休憩</button>
+            </form>
+        </div>
+        <div class=breakend>
+            <form action="/breakend" method="POST">
+                @csrf
+                <button type="submit" >戻り</button>
+            </form>
+        </div>
         @endsection
     </body>
 </html>
