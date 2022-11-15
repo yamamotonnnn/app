@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
          <link rel="stylesheet" href="./css/create.css">
-        <title>TimeLine Post</title>
+        <title>timeline投稿画面</title>
     </head>
     <body>
         @extends('layouts.app')　

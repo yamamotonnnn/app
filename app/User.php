@@ -45,5 +45,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Nice');
     }
     
+    public function permissions() {
+        return $this->hasOne('App\Permissions');
+    }
 }
     
