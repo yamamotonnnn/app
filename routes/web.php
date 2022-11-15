@@ -32,8 +32,8 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/reply/like/{post}','PostController@like')->name('like');
     Route::get('/reply/unlike/{post}','PostController@unlike')->name('unlike');
-    
-    Route::get('/admin','PostController@admin');
+    //Route::group(['middleware' => ['auth', 'can:admin']], function () {
+       Route::get('/admin','PostController@admin');
 });
 
 Auth::routes();

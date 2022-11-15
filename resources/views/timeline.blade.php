@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <title>Laravel</title>
+        <title>timeline</title></title>
         <link rel="stylesheet" href="./css/timeline.css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -15,8 +15,8 @@
         @extends('layouts.app')　
         @section('content')
          <div class=user>{{Auth::user()->name}}</div>
-        <div class="home">[<a href="/">home</a>]</div>
-        <div class=create><a href='/create'>create</a><div>
+        <div class="home">[<a href="/">home画面へ戻る</a>]</div>
+        <div class=create><a href='/create'>投稿する</a><div>
         <h1>TimeLine</h1>
         <div class='posts'>
         @foreach ($posts as $post)
