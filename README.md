@@ -7,9 +7,13 @@
 
 ## DEMO
 
-!(https://user-images.githubusercontent.com/111631260/202113766-dbd763f8-cd96-41b2-afab-6f96c4191cc5.png)
+<img src="https://user-images.githubusercontent.com/111631260/202113766-dbd763f8-cd96-41b2-afab-6f96c4191cc5.png" width="300px">
 
+<img src="" width="300px">
 
+<img src="" width="300px">
+
+<img src="" width="300px">
 ## Requirement
 * "php": "^7.2.5|^8.0",
 * "fideloper/proxy": "^4.4",
